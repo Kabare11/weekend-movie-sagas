@@ -1,22 +1,23 @@
-import { Route, HashRouter as Router } from 'react-router-dom';
-import MovieList from '../MovieList/MovieList';
-import './App.css';
+import { HashRouter as Router, Route } from "react-router-dom";
+import MovieList from "../MovieList/MovieList";
+import "./App.css";
+import MovieDetail from "../MovieDetail/MovieDetail";
+
+// react router dom added for home page and details page
 
 function App() {
   return (
-    <div className="App">
-      <h1>The Movies Saga!</h1>
-      <Router>        
-        <Route path="/" exact>
-          <MovieList />
-        </Route>
-        
-        {/* Details page */}
+    <Router>
+      <Route path="/" exact>
+        <MovieList />
+      </Route>
+      {/* Details page */}
 
-        {/* Add Movie page */}
-        
-      </Router>
-    </div>
+      <Route path={"/details/:id"}>
+        <MovieDetail />
+      </Route>
+      {/* Add Movie page */}
+    </Router>
   );
 }
 
